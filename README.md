@@ -1,2 +1,1 @@
-coding is fun as it is.
-shebang seems fun
+Learning shell navigation, looking around, manupulating files, working with commands, reading manual pages, keyboard shortcuts for bash and LTS.       
