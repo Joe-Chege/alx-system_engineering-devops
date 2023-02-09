@@ -1,2 +1,2 @@
 #!/bin/bash
-file hello /0x01-shell_permissions
+touch hello /0x01-shell_permissions
