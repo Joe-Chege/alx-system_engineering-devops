@@ -1,2 +1,3 @@
 #!/bin/bash
-prinf "%X\n" $DECIMAL
+tr 'A-Za-z' 'N-ZA-Mn-za-m'
+
