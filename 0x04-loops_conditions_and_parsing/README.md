@@ -21,4 +21,4 @@
     The second line of all your Bash scripts should be a comment explaining what is the script doing
 
 # Resources 
-    [loop sample]https://intranet.alxswe.com/rltoken/wT98UJfv_E2tk4yP9PcLLw
+ https://intranet.alxswe.com/rltoken/wT98UJfv_E2tk4yP9PcLLw
