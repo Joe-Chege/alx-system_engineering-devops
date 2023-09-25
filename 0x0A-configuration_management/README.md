@@ -1,23 +1,4 @@
----
-
-# Project: Configuration Management with Puppet
-
-## Project Overview
-
-This project focuses on configuration management using Puppet. Below are the details and tasks related to the project.
-
-## Migration to Discord
-
-In a few days, we will be leaving Slack in favor of Discord 🎉. For more information, click [here](#).
-
-## Project Details
-
-- **Author**: Sylvain Kalache
-- **Project Weight**: 1
-- **Start Date**: Sep 22, 2023, 6:00 AM
-- **End Date**: Sep 28, 2023, 6:00 AM
-- **Auto QA Review**: 0.0/9 mandatory
-- **Background Context**: The project's context includes a story about a previous experience with configuration issues and the importance of infrastructure automation using Puppet.
+0x0A. Configuration management
 
 ## Requirements
 
