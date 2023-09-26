@@ -1,38 +1,27 @@
-# Install Nginx web server and configure custom 404 page
+  
+# Install NginX
+# With puppet
 
-# Add Nginx repository and update packages
-exec { 'add nginx repository and update packages':
-  command => 'apt-get update && apt-get install -y software-properties-common && add-apt-repository -y ppa:nginx/stable && apt-get update',
-  path    => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin',
+exec { 'apt-get-update':
+  command => '/usr/bin/apt-get update',
 }
 
-# Install Nginx package
 package { 'nginx':
-  ensure  => 'installed',
+  ensure  => installed,
+  require => Exec['apt-get-update'],
 }
 
-# Create custom 404 page
-file { '/var/www/html/404.html':
-  content => "Ceci n'est pas une page\n",
-}
-
-# Configure Nginx
-file { '/etc/nginx/sites-available/default':
-  ensure  => file,
-  source  => 'puppet:///modules/mymodule/nginx_default_config',
+file { '/var/www/html/index.html':
+  content => 'Hello World!',
   require => Package['nginx'],
 }
 
-# Create a symbolic link for the Nginx default site
-file { '/etc/nginx/sites-enabled/default':
-  ensure  => link,
-  target  => '/etc/nginx/sites-available/default',
-  require => File['/etc/nginx/sites-available/default'],
+exec {'redirect_me':
+  command  => 'sed -i "24i\	rewrite ^/redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;" /etc/nginx/sites-available/default',
+  provider => 'shell'
 }
 
-# Ensure Nginx service is running and enable it at boot
 service { 'nginx':
-  ensure  => 'running',
-  enable  => 'true',
-  require => [Package['nginx'], File['/etc/nginx/sites-enabled/default']],
+  ensure  => running,
+  require => Package['nginx'],
 }
