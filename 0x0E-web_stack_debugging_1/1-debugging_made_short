@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+# Modify Nginx configuration to listen on port 80
+sed -i 's/8080/80/g' /etc/nginx/sites-enabled/default
+
+# Restart Nginx service to apply the configuration changes
+service nginx restart
+
+# Check Nginx service status (it should report as not running)
+service nginx status
+
+# Verify Nginx is now listening on port 80
+# Use curl to test the connection and check for HTTP 200 OK response
+response=$(curl -s -o /dev/null -w "%{http_code}" 0:80)
+if [ "$response" -eq 200 ]; then
+    echo "Nginx is successfully listening on port 80."
+else
+    echo "Failed to establish connection to Nginx on port 80. Check the configuration."
+fi
