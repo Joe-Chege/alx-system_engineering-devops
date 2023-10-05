@@ -43,8 +43,8 @@ frontend clickviral-tech-frontend
 
 backend clickviral-tech-backend
     balance roundrobin
-    server 238053-web-01 100.25.220.119 check
-    server 238053-web-02 100.25.147.34 check
+    server web-01 100.25.220.119 check
+    server web-02 100.25.147.34 check
 "
 
 # Apply the server configuration to the HAProxy config file
@@ -60,3 +60,6 @@ if [ "$(pgrep -c haproxy)" -le 0 ]; then
 else
     sudo service haproxy restart
 fi
+
+# Output server names
+echo "Server names configured: web-01, web-02"
