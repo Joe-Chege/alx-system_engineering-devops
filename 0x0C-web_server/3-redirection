@@ -1,32 +1,9 @@
 #!/usr/bin/env bash
+# This script installs nginx on ubuntu server
 
-# Describes what the Bash script does
-# Installs, configures, and starts the Nginx server with a 301 redirect for /redirect_me
-
-# Update package repository and install Nginx
-apt-get update
-apt-get -y install nginx
-
-# Configure Nginx redirection
-SERVER_CONFIG="server {
-    listen 80 default_server;
-    listen [::]:80 default_server;
-    root /var/www/html;
-    index index.html index.htm index.nginx-debian.html;
-    server_name _;
-    location / {
-        try_files \$uri \$uri/ =404;
-    }
-    location /redirect_me {
-        return 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;
-    }
-}"
-
-# Create a temporary configuration file
-echo -e "$SERVER_CONFIG" > /etc/nginx/sites-available/redirect
-
-# Create a symbolic link to enable the site configuration
-ln -s /etc/nginx/sites-available/redirect /etc/nginx/sites-enabled/
-
-# Test Nginx configuration and restart the service
-nginx -t && service nginx restart
+sudo apt-get install -y nginx
+sudo ufw allow 'Nginx HTTP'
+echo "Hello World!" | sudo tee /var/www/html/index.nginx-debian.html
+line="\\\trewrite ^/redirect_me http://jiwezeinitiative.tech permanent;"
+sudo sed -i "26i $line" /etc/nginx/sites-available/default
+sudo service nginx restart
