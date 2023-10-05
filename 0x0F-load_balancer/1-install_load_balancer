@@ -22,7 +22,7 @@ function install() {
 # Install HAProxy
 install haproxy
 
-echo -e "\nSetting up some minor stuff.\n"
+echo -e "\nSetting up HAProxy...\n"
 
 # Backup default HAProxy server config file
 sudo cp /etc/haproxy/haproxy.cfg haproxy_default.backup
@@ -43,16 +43,15 @@ frontend clickviral-tech-frontend
 
 backend clickviral-tech-backend
     balance roundrobin
-    server web-01 100.25.220.119 check
-    server web-02 100.25.147.34 check
+    server 238053-web-01 100.25.220.119 check
+    server 238053-web-02 100.25.147.34 check
 "
 
 # Apply the server configuration to the HAProxy config file
-# shellcheck disable=SC2154
-echo "$server_config" | sudo dd status=none of=/etc/haproxy/haproxy.cfg
+echo "$server_config" | sudo tee /etc/haproxy/haproxy.cfg > /dev/null
 
 # Enable HAProxy to be started by the init script
-echo "ENABLED=1" | sudo dd status=none of=/etc/default/haproxy
+echo "ENABLED=1" | sudo tee /etc/default/haproxy > /dev/null
 
 # Start or restart HAProxy service based on its status
 if [ "$(pgrep -c haproxy)" -le 0 ]; then
@@ -62,4 +61,4 @@ else
 fi
 
 # Output server names
-echo "Server names configured: web-01, web-02"
+echo "Server names configured: 238053-web-01, 238053-web-02"
