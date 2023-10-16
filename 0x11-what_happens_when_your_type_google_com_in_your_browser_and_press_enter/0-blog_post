@@ -1,0 +1,47 @@
+**Title: Demystifying the Web Stack: What Happens When You Type https://www.google.com and Press Enter?**
+
+---
+
+### Introduction
+
+Have you ever wondered what happens behind the scenes when you type a web address into your browser and hit Enter? The process might seem like magic, but it's actually a complex orchestration of technologies working seamlessly together. In this blog post, we'll unravel the mystery behind the simple act of entering "https://www.google.com" into your browser.
+
+### DNS Request: Mapping Names to IP Addresses
+
+The journey begins with the Domain Name System (DNS) request. When you type the URL, your computer queries a DNS server to translate the human-readable domain name "www.google.com" into an IP address. This IP address is essential for routing your request over the internet.
+
+### TCP/IP: Establishing a Connection
+
+With the IP address in hand, your computer establishes a Transmission Control Protocol (TCP) connection with Google's server. TCP ensures reliable and ordered delivery of data packets between your computer and the server, forming the backbone of internet communication. The Internet Protocol (IP) handles addressing and routing, ensuring your data reaches the intended destination.
+
+### Firewall: Security Shield
+
+Before your request reaches Google's servers, it passes through firewalls. Firewalls act as security guards, filtering incoming and outgoing traffic based on predetermined security rules. They protect both client and server systems from unauthorized access and malicious attacks.
+
+### HTTPS/SSL: Secure Communication
+
+In the modern web, security is paramount. Hypertext Transfer Protocol Secure (HTTPS) encrypts the data exchanged between your browser and the server. Secure Sockets Layer (SSL) certificates authenticate the server's identity and establish an encrypted connection, safeguarding your sensitive information from eavesdroppers.
+
+### Load-Balancer: Distributing the Load
+
+Websites like Google handle immense traffic daily. Load balancers distribute incoming requests across multiple servers to prevent overload and ensure optimal performance. They play a crucial role in maintaining responsiveness and uptime, especially for popular websites.
+
+### Web Server: Serving Web Pages
+
+Once your request reaches Google's servers, a web server processes it. Web servers, like Apache or Nginx, fetch the requested web page and send it back to your browser. They handle static content and execute necessary processes to generate dynamic content, ensuring you receive the web page you requested.
+
+### Application Server: Executing Dynamic Code
+
+For dynamic websites, application servers come into play. They execute server-side scripts, process database queries, and generate dynamic content based on user interactions. Application servers, such as Node.js or Django, enable the creation of interactive web applications by handling complex computations and database operations.
+
+### Database: Storing and Retrieving Data
+
+Behind many websites, there's a database silently working to store and retrieve data. Databases like MySQL, PostgreSQL, or MongoDB store information such as user profiles, search queries, and transaction histories. When you search for something on Google, the database fetches relevant results to display on your screen.
+
+### Conclusion
+
+The seemingly straightforward act of typing "https://www.google.com" into your browser triggers a fascinating journey through the intricate web stack. From DNS requests to database operations, numerous technologies collaborate to deliver the web page to your screen. Understanding this process not only satisfies curiosity but also provides insight into the complex world of web development and networking.
+
+In a world where the internet is an integral part of our daily lives, knowing how it works under the hood empowers us as users and creators. The next time you press Enter, remember the intricate dance of technologies that occurs behind the scenes, connecting you to the vast world of information on the web.
+
+https://medium.com/@njorogejosephchege/demystifying-the-web-stack-eea925ef8cd6
