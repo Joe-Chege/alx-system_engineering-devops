@@ -57,3 +57,8 @@ Contribute meaningfully to the open-source initiative "What Happens When" by sub
 ### Conclusion
 
 This project provides an excellent opportunity to delve deep into the infrastructure side of web technology, enhancing your understanding of the web stack. By completing the tasks outlined above, you will not only demonstrate your knowledge but also contribute to a valuable open-source initiative, showcasing your expertise to the wider technical community. Best of luck with your project!
+
+
+
+ 
+  
