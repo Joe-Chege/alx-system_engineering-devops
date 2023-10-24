@@ -8,6 +8,7 @@ import csv
 import requests
 import sys
 
+
 def fetch_todo_data(employee_id):
     """
     Fetches TODO list data for a given employee ID from the API.
@@ -19,12 +20,14 @@ def fetch_todo_data(employee_id):
         list: List of dictionaries representing TODO list data.
     """
     try:
-        response = requests.get(f"https://jsonplaceholder.typicode.com/todos", params={"userId": employee_id})
+        response = requests.get(f"https://jsonplaceholder.typicode.com/todos",
+                                params={"userId": employee_id})
         response.raise_for_status()
         return response.json()
     except requests.exceptions.HTTPError as err:
         print(f"Error fetching TODO list data: {err}")
         sys.exit(1)
+
 
 def export_to_csv(employee_id, todos):
     """
@@ -49,6 +52,7 @@ def export_to_csv(employee_id, todos):
                 "TASK_TITLE": task.get("title")
             })
 
+
 def fetch_user_data(employee_id):
     """
     Fetches user data for a given employee ID from the API.
@@ -66,6 +70,7 @@ def fetch_user_data(employee_id):
     except requests.exceptions.HTTPError as err:
         print(f"Error fetching user data: {err}")
         sys.exit(1)
+
 
 if __name__ == "__main__":
     # Check for correct number of command line arguments
