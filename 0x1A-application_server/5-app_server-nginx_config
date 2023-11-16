@@ -9,3 +9,4 @@ server {
         alias /path/to/AirBnB_clone_v4/web_dynamic/static/;
     }
 }
+ssh ubuntu@100.25.193.237
