@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# Get the Gunicorn process IDs
+# Perform a graceful reload of Gunicorn workers
 PIDS=$(ps aux | grep '[g]unicorn' | awk '{print $2}')
 
 # Iterate through each PID and send a graceful reload signal
